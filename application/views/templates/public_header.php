@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= isset($pengaturan['nama_layanan']) ? html_escape($pengaturan['nama_layanan']) : 'eSKM' ?> - <?= isset($pengaturan['nama_instansi']) ? html_escape($pengaturan['nama_instansi']) : '' ?></title>
 <meta name="description" content="Survei Kepuasan Masyarakat (SKM) <?= isset($pengaturan['nama_instansi']) ? html_escape($pengaturan['nama_instansi']) : '' ?>">
+<link rel="icon" type="image/png" href="<?= base_url("assets/img/logo-dinkes.png") ?>">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">

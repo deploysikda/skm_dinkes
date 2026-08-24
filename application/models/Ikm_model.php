@@ -248,4 +248,33 @@ class Ikm_model extends CI_Model
 		// tb_jawaban ikut terhapus otomatis (ON DELETE CASCADE)
 		return $this->db->where('id', $id)->delete('tb_responden');
 	}
+
+	/**
+	 * List responden yang mengisi saran/masukan, dengan pagination + filter periode
+	 */
+	public function get_saran_list($limit = 10, $offset = 0, $bulan = null, $tahun = null)
+	{
+		$this->db->from('tb_responden');
+		$this->db->where('saran IS NOT NULL', null, false);
+		$this->db->where('saran !=', '');
+		$this->terapkan_filter_periode($bulan, $tahun);
+		$this->db->order_by('created_at', 'DESC');
+		$this->db->limit($limit, $offset);
+		$rows = $this->db->get()->result_array();
+
+		$peta = $this->peta_urutan();
+		foreach ($rows as $i => $row) {
+			$rows[$i]['urutan'] = isset($peta[(int) $row['id']]) ? $peta[(int) $row['id']] : null;
+		}
+		return $rows;
+	}
+
+	public function count_saran_filtered($bulan = null, $tahun = null)
+	{
+		$this->db->from('tb_responden');
+		$this->db->where('saran IS NOT NULL', null, false);
+		$this->db->where('saran !=', '');
+		$this->terapkan_filter_periode($bulan, $tahun);
+		return (int) $this->db->count_all_results();
+	}
 }

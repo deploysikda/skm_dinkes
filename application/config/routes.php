@@ -69,5 +69,6 @@ $route['admin/hasil/(:num)/(:num)']   = 'admin/hasil/index/$1/$2';
 $route['admin/responden']             = 'admin/responden/index';
 $route['admin/responden/detail/(:num)'] = 'admin/responden/detail/$1';
 $route['admin/responden/hapus/(:num)']  = 'admin/responden/hapus/$1';
+$route['admin/saran']                 = 'admin/saran/index';
 $route['admin/export/hasil']          = 'admin/export/hasil';
 $route['admin/export/pdf']            = 'admin/export/pdf';
