@@ -30,7 +30,7 @@ class Export extends Admin_Controller
 		$data['bulan_list']     = bulan_indo();
 		$data['tahun_list']     = $this->Ikm_model->daftar_tahun();
 		$data['bulan_nama']     = $bulan ? bulan_indo($bulan) : 'Semua Bulan';
-		$data['tanggal_cetak']  = tanggal_indo(date('Y-m-d H:i:s'));
+		$data['tanggal_cetak']  = tanggal_indo(date('Y-m-d H:i:s'), false);
 		$data['demografi']      = $this->Ikm_model->statistik_demografi($bulan, $tahun);
 		$data['pendidikan_list'] = array('SD ke bawah', 'SLTP/Sederajat', 'SLTA/Sederajat', 'D1/D2/D3', 'S1', 'S2 ke atas');
 		$data['periode']        = $this->label_periode($bulan, $tahun);
